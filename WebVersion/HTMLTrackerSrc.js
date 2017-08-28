@@ -3,6 +3,9 @@ var SkillList = ["SpiritFlame", "WallJump", "ChargeFlame", "DoubleJump", "Bash",
 var KeyList = ["WaterVein", "GumonSeal", "Sunstone"];
 var EventList = ["CleanWater", "WindRestored"];
 
+var trackerLeft;
+var trackerRight;
+
 function clearCheckBoxes(doc) {
   var list_cb = doc.getElementsByClassName("checkbox");
   for (i = 0; i < list_cb.length; i++) {
@@ -11,7 +14,6 @@ function clearCheckBoxes(doc) {
 }
 
 function toggleCheckbox(doc, element) {
-  //doc.getElementById('check_side1_test').checked = !doc.getElementById('check_side1_test').checked;
   redrawGraphics(doc);
 }
 
@@ -57,6 +59,14 @@ function setVisibility(doc, id, vis) {
 }
 
 function startAll(doc) {
+  trackerLeft = $("#tracker").clone();
+  trackerLeft.attr("id", "trackerLeft");
+  trackerLeft.appendTo("body");
+
+  trackerRight = $("#tracker").clone();
+  trackerRight.attr("id", "trackerRight");
+  trackerRight.appendTo("body");
+
   clearCheckBoxes(doc);
   redrawGraphics(doc);
 }
